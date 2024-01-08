@@ -6,7 +6,7 @@ export default function Splash(props) {
     <View style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require("./assets/politizen-logo.png")}
+        source={require("/Users/dharma/Documents/GitHub/Politizen/assets/politizen-logo.png")}
       />
       <Button
         title="Login"

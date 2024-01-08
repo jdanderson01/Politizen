@@ -2,12 +2,12 @@ import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Splash from "./Splash";
-import Login from "./Login";
-import Register from "./Register";
-import Recover from "./Recover";
-import Interests from "./Interests";
-import Code from "./Code";
+import Splash from "./screens/Splash.jsx";
+import Login from "./screens/Login";
+import Register from "./screens/Register";
+import Recover from "./screens/Recover";
+import Interests from "./screens/Interests";
+import Code from "./screens/Code";
 
 const Stack = createStackNavigator();
 

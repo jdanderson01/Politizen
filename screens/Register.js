@@ -1,37 +1,36 @@
 import "react-native-gesture-handler";
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Image, Pressable } from "react-native";
-import { Input, Text } from "react-native-elements";
+import { Text } from "react-native-elements";
 
-export default function Login(props) {
-  const [email, setEmail] = useState(props.route.params.email);
+export default function Register() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  function checkAuth() {
-    if (email == "tomato@gmail.com" && password == "potato") {
-      props.navigation.replace("Splash");
-    }
-  }
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.tinyLogo}
-        source={require("./assets/politizen-logo.png")}
-      />
       <Text h2 style={{ textAlign: "left" }}>
-        Sign In
+        Create an Account
       </Text>
-      <Input
-        style={styles.input}
-        placeholder="Enter email"
-        onChangeText={setEmail}
-        value={email}
+      <TextInput
+        style={styles.pInput}
+        placeholder="Enter your username"
+        value={username}
+        onChangeText={setUsername}
         underlineColorAndroid="transparent"
       />
       <TextInput
         style={styles.pInput}
+        placeholder="Enter Email"
+        value={email}
+        onChangeText={setEmail}
+        secureTextEntry={true}
+      />
+      <TextInput
+        style={styles.pInput}
         placeholder="Enter Password"
+        value={password}
         onChangeText={setPassword}
         secureTextEntry={true}
       />
@@ -42,28 +41,8 @@ export default function Login(props) {
           checkAuth();
         }}
       >
-        <Text style={styles.pText}>Sign in</Text>
+        <Text style={styles.pText}>Continue</Text>
       </Pressable>
-      <Text style={styles.regText}>
-        Don't have an account?{" "}
-        <Pressable
-          onPress={() => {
-            props.navigation.navigate("Register");
-          }}
-        >
-          <Text style={styles.pressStyle}>Create one.</Text>
-        </Pressable>
-      </Text>
-      <Text style={styles.regText}>
-        Forgot Password?{" "}
-        <Pressable
-          onPress={() => {
-            props.navigation.navigate("Recover");
-          }}
-        >
-          <Text style={styles.pressStyle}>Click here.</Text>
-        </Pressable>
-      </Text>
     </View>
   );
 }
@@ -79,15 +58,6 @@ const styles = StyleSheet.create({
   tinyLogo: {
     height: 370,
     width: 371,
-  },
-
-  input: {
-    height: 40,
-    margin: 12,
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderRadius: 12,
-    padding: 10,
   },
 
   pInput: {
